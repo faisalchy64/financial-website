@@ -1,8 +1,16 @@
 body {
     font-family: "Poppins", sans-serif;
+    background: #17202a;
+    color: #17202a;
 }
 
 /* main component savings */
 #save-input {
     width: 75px;
+}
+
+/* main component alert */
+#error-message {
+    display: none;
+    background: #f39c12;
 }

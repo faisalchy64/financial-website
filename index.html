@@ -21,14 +21,17 @@
     <!-- header component -->
     <header class="p-5">
         <h1 class="text-center text-danger">Monefy</h1>
-        <p class="text-center">Monefy is a personal finance website that makes money management easy.<br>
+        <p class="text-center text-white">Monefy is a personal finance website that makes money management easy.<br>
             The website is designed to streamline expense tracking and help you save money.
         </p>
     </header>
 
     <!-- main component -->
-    <main class="pb-5">
+    <main class="pb-5 position-relative">
         <section class="container-sm">
+            <!-- alert -->
+            <div id="error-message" class="py-2 mb-3 text-center">Hello</div>
+
             <div class="row">
                 <!-- image box -->
                 <div class="col-lg-6 px-0">
@@ -72,8 +75,8 @@
                         <button id="btn-save" type="button" class="btn btn-primary btn-lg">Save</button>
                     </div>
 
-                    <h3 class="mb-3">Saving Amount: <span id="saving-amount">2000</span></h3>
-                    <h3 class="mb-3">Remaining Balance: <span id="remaining-balance">2500</span></h3>
+                    <h3 class="mb-3 text-center">Saving Amount: <span id="saving-amount">2000</span></h3>
+                    <h3 class="mb-3 text-center">Remaining Balance: <span id="remaining-balance">2500</span></h3>
                 </div>
             </div>
         </section>
