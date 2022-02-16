@@ -1,3 +1,8 @@
 body {
     font-family: "Poppins", sans-serif;
 }
+
+/* main component savings */
+#save-input {
+    width: 75px;
+}

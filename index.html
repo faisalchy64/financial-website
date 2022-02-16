@@ -19,9 +19,65 @@
 
 <body>
     <!-- header component -->
-    <header>
-        <h1 class="text-center text-danger p-5">Monefy</h1>
+    <header class="p-5">
+        <h1 class="text-center text-danger">Monefy</h1>
+        <p class="text-center">Monefy is a personal finance website that makes money management easy.<br>
+            The website is designed to streamline expense tracking and help you save money.
+        </p>
     </header>
+
+    <!-- main component -->
+    <main class="pb-5">
+        <section class="container-sm">
+            <div class="row">
+                <!-- image box -->
+                <div class="col-lg-6 px-0">
+                    <img class="img-fluid h-100" src="./image/money.jpg" alt="money">
+                </div>
+
+                <!-- main content -->
+                <div class="d-flex flex-column align-items-center bg-light col-lg-6 p-3">
+                    <!-- income -->
+                    <h3 class="mb-3">Income</h3>
+                    <div class="mb-4">
+                        <label for="income-input">Income:</label>
+                        <input class="ms-2 p-1 border border-2" id="income-input" type="text" value="10000">
+                    </div>
+
+                    <!-- expenses -->
+                    <h3 class="mb-3">Expenses</h3>
+                    <div class="mb-4">
+                        <label for="food-input">Food:</label>
+                        <input class="ms-2 p-1 border border-2 " id="food-input" type="text" value="3000">
+                    </div>
+                    <div class="mb-4">
+                        <label for="rent-input">Rent:</label>
+                        <input class="ms-2 p-1 border border-2" id="rent-input" type="text" value="2000">
+                    </div>
+                    <div class="mb-4">
+                        <label for="cloth-input">Clothes:</label>
+                        <input class="ms-2 p-1 border border-2" id="cloth-input" type="text" value="500">
+                    </div>
+
+                    <button id="btn-calculate" type="button" class="btn btn-primary btn-lg">Calculate</button>
+
+                    <h3 class="mt-5 mb-3">Total Expenses: <span id="total-expenses">5500</span></h3>
+                    <h3>Balance: <span id="balance">4500</span></h3>
+
+                    <!-- savings -->
+                    <div class="my-5 text-center">
+                        <label for="save-input">Save:</label>
+                        <input id="save-input" class="ms-2 p-1 border border-2" type="text" value="20">
+                        <span class="mx-3 fw-bold">&#37</span>
+                        <button id="btn-save" type="button" class="btn btn-primary btn-lg">Save</button>
+                    </div>
+
+                    <h3 class="mb-3">Saving Amount: <span id="saving-amount">2000</span></h3>
+                    <h3 class="mb-3">Remaining Balance: <span id="remaining-balance">2500</span></h3>
+                </div>
+            </div>
+        </section>
+    </main>
 
 
     <!-- bootstrap script cdn -->
