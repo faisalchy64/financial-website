@@ -11,8 +11,9 @@ const remainingBalance = document.getElementById("remaining-balance");
 const message = document.getElementById("error-message");
 
 // error handle with this function
-function errorHandler(isTrue) {
+function errorHandler(isTrue, errorMessage) {
     if (isTrue) {
+        message.innerText = errorMessage;
         message.style.display = "block";
     } else {
         message.style.display = "none";
@@ -23,7 +24,7 @@ function errorHandler(isTrue) {
 function calculate(foodExpense, rentExpense, clothExpense, income) {
     const totalCost = foodExpense + rentExpense + clothExpense;
     if (totalCost > income) {
-        errorHandler(true);
+        errorHandler(true, "Be Thrifty, You Don't Have Enough Money!");
         return;
     } else {
         errorHandler(false);
@@ -50,7 +51,7 @@ document.getElementById("btn-calculate").addEventListener("click", function () {
         isNaN(income) ||
         income < 0
     ) {
-        errorHandler(true);
+        errorHandler(true, "Please Give Valid Number As Input!");
         return;
     } else {
         errorHandler(false);
@@ -63,18 +64,18 @@ document.getElementById("btn-calculate").addEventListener("click", function () {
 document.getElementById("btn-save").addEventListener("click", function () {
     const percent = parseInt(saveInput.value);
     const income = parseInt(incomeInput.value);
+    const savings = (income * percent) / 100;
+    const remainingAmount = parseInt(balance.innerText) - savings;
 
     if (isNaN(percent) || percent < 0 || percent > 100) {
-        errorHandler(true);
+        errorHandler(true, "Please Give Valid Number As Input!");
+        return;
+    } else if (remainingAmount < 0) {
+        errorHandler(true, "You Don't Have Enough Money!");
         return;
     } else {
         errorHandler(false);
     }
-
-    const savings = (income * percent) / 100;
-    const extraExpenses = parseInt(totalExpenses.innerText) + savings;
-    const remainingAmount = income - extraExpenses;
-
     savingAmount.innerText = savings;
     remainingBalance.innerText = remainingAmount;
 });
