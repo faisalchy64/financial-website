@@ -61,18 +61,20 @@ document.getElementById("btn-calculate").addEventListener("click", function () {
 
 // saveBtn event listen
 document.getElementById("btn-save").addEventListener("click", function () {
-    const rate = parseInt(saveInput.value);
-    const remainingAmount = parseInt(balance.innerText);
+    const percent = parseInt(saveInput.value);
+    const income = parseInt(incomeInput.value);
 
-    if (isNaN(rate) || rate < 0 || rate > 100) {
+    if (isNaN(percent) || percent < 0 || percent > 100) {
         errorHandler(true);
         return;
     } else {
         errorHandler(false);
     }
 
-    const savings = (remainingAmount * rate) / 100;
+    const savings = (income * percent) / 100;
+    const extraExpenses = parseInt(totalExpenses.innerText) + savings;
+    const remainingAmount = income - extraExpenses;
 
     savingAmount.innerText = savings;
-    remainingBalance.innerText = remainingAmount - savings;
+    remainingBalance.innerText = remainingAmount;
 });
