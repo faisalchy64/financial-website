@@ -8,6 +8,30 @@ const totalExpenses = document.getElementById("total-expenses");
 const balance = document.getElementById("balance");
 const savingAmount = document.getElementById("saving-amount");
 const remainingBalance = document.getElementById("remaining-balance");
+const message = document.getElementById("error-message");
+
+// error handle with this function
+function errorHandler(isTrue) {
+    if (isTrue) {
+        message.style.display = "block";
+    } else {
+        message.style.display = "none";
+    }
+}
+
+// calculate total expenses and balance in this function
+function calculate(foodExpense, rentExpense, clothExpense, income) {
+    const totalCost = foodExpense + rentExpense + clothExpense;
+    if (totalCost > income) {
+        errorHandler(true);
+        return;
+    } else {
+        errorHandler(false);
+    }
+
+    totalExpenses.innerText = totalCost;
+    balance.innerText = income - totalCost;
+}
 
 // calculateBtn event listen
 document.getElementById("btn-calculate").addEventListener("click", function () {
@@ -16,5 +40,39 @@ document.getElementById("btn-calculate").addEventListener("click", function () {
     const clothExpense = parseInt(clothInput.value);
     const income = parseInt(incomeInput.value);
 
+    if (
+        isNaN(foodExpense) ||
+        foodExpense < 0 ||
+        isNaN(rentExpense) ||
+        rentExpense < 0 ||
+        isNaN(clothExpense) ||
+        clothExpense < 0 ||
+        isNaN(income) ||
+        income < 0
+    ) {
+        errorHandler(true);
+        return;
+    } else {
+        errorHandler(false);
+    }
 
+    calculate(foodExpense, rentExpense, clothExpense, income);
+});
+
+// saveBtn event listen
+document.getElementById("btn-save").addEventListener("click", function () {
+    const rate = parseInt(saveInput.value);
+    const remainingAmount = parseInt(balance.innerText);
+
+    if (isNaN(rate) || rate < 0 || rate > 100) {
+        errorHandler(true);
+        return;
+    } else {
+        errorHandler(false);
+    }
+
+    const savings = (remainingAmount * rate) / 100;
+
+    savingAmount.innerText = savings;
+    remainingBalance.innerText = remainingAmount - savings;
 });
