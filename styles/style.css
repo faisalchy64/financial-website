@@ -4,6 +4,16 @@ body {
     color: #17202a;
 }
 
+/* main component label */
+label {
+    width: 70px;
+    margin-bottom: 0.5rem;
+}
+
+label[for="save-input"] {
+    margin-bottom: 0;
+}
+
 /* main component savings */
 #save-input {
     width: 75px;
