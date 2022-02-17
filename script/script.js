@@ -8,6 +8,13 @@ const totalExpenses = document.getElementById("total-expenses");
 const balance = document.getElementById("balance");
 const savingAmount = document.getElementById("saving-amount");
 const remainingBalance = document.getElementById("remaining-balance");
-const errorMessage = document.getElementById("error-message");
+
+// calculateBtn event listen
+document.getElementById("btn-calculate").addEventListener("click", function () {
+    const foodExpense = parseInt(foodInput.value);
+    const rentExpense = parseInt(rentInput.value);
+    const clothExpense = parseInt(clothInput.value);
+    const income = parseInt(incomeInput.value);
 
 
+});
